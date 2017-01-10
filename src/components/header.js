@@ -5,7 +5,6 @@ import Actions from './actions';
 import Action from './action';
 
 const renderActions = (actions) => {
-  console.log(actions);
   return _.map(actions, (action) => {
     return <Action name={action} />;
   });

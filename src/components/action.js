@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default (props) => {
-  console.log(props);
+  const file = props.name.toLowerCase().replace(/ /g, '');
   return (
-    <div>{props.name}</div>
+    <div className="action">
+      <Link to={`/${file}`}>{props.name}</Link>
+    </div>
   );
 };

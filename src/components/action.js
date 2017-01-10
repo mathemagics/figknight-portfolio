@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default (props) => {
+  console.log(props);
   return (
-    <div>{props.children}</div>
+    <div>{props.name}</div>
   );
 };

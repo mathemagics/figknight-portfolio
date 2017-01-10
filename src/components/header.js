@@ -1,14 +1,22 @@
 import React from 'react';
+import _ from 'lodash';
 import HeaderTitle from './header_title';
 import Actions from './actions';
 import Action from './action';
 
-export default () => {
+const renderActions = (actions) => {
+  console.log(actions);
+  return _.map(actions, (action) => {
+    return <Action name={action} />;
+  });
+};
+
+export default (props) => {
   return (
     <div className="header">
-      <HeaderTitle>Fig Knight</HeaderTitle>
+      <HeaderTitle>{props.titles}</HeaderTitle>
       <Actions>
-        <Action>Yum</Action>
+        {renderActions(props.links)}
       </Actions>
     </div>
   );

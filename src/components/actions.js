@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default () => {
+export default (props) => {
   return (
-    <div />
+    <div>{props.children}</div>
   );
 };

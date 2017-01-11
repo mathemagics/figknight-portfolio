@@ -4,12 +4,14 @@ import Header from './header';
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app">
         <Header
           title="Fig Knight"
           links={['Products', 'About Us', 'Contact']}
         />
-        {this.props.children}
+        <div className="content">
+          {this.props.children}
+        </div>
       </div>
     );
   }

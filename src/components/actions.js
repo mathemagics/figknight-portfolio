@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => {
   return (
-    <div className="Actions">
+    <div className="actions">
       {props.children}
     </div>
   );

@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import mainReducer from './main_reducer';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  mainSlides: mainReducer,
 });
 
 export default rootReducer;

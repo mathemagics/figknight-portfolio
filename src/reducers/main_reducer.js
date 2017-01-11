@@ -3,7 +3,7 @@ import {
 } from '../actions';
 
 const INITIAL_STATE = {
-  slide: 1,
+  slide: 0,
 };
 
 export default (state = INITIAL_STATE, action) => {

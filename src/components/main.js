@@ -5,61 +5,41 @@ import Slide from './main_slide';
 import HeaderTitle from './header_title';
 
 import { setSlide } from '../actions';
-// const mouseOver = (num) => {
-//   console.log(num);
-//   return () => {
-//     this.refs.slider.slickGoTo(num);
-//   };
-// };
 
 class main extends Component {
-  constructor(props) {
-    super(props);
-    this.changeSlide = this.changeSlide.bind(this);
-  }
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps.slide);
-    this.refs.slider.slickGoTo(nextProps.slide - 1);
-  }
-  changeSlide(num) {
-    return () => {
-      console.log(num);
-      this.props.setSlide(num);
-    };
-  }
   render() {
     const settings = {
+      customPaging: (i) => {
+        switch (i) {
+          case 0:
+            return <a className={`main-btn ${this.props.slide === 0 ? 'btn-highlighted' : ''}`}>Web Design</a>;
+          case 1:
+            return <a className={`main-btn ${this.props.slide === 1 ? 'btn-highlighted' : ''}`}>User Experience</a>;
+          case 2:
+            return <a className={`main-btn ${this.props.slide === 2 ? 'btn-highlighted' : ''}`}>Mobile Apps</a>;
+          default:
+            return null;
+        }
+      },
       dots: true,
+      autoplay: true,
+      dotsClass: 'info-list',
       infinite: true,
-      speed: 500,
+      speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
+      beforeChange: this.props.setSlide,
     };
     return (
       <div className="main">
         <HeaderTitle>Fig Knight</HeaderTitle>
-        <ul className="info-list">
-          <li>
-            <button className="main-btn" onMouseEnter={this.changeSlide(1)}>
-              Web Design
-            </button>
-          </li>
-          <li>
-            <button className="main-btn" onMouseEnter={this.changeSlide(2)}>
-              Mobile Apps
-            </button>
-          </li>
-          <li>
-            <button className="main-btn" onMouseEnter={this.changeSlide(3)}>
-              User Experience
-            </button>
-          </li>
-        </ul>
-        <Slider ref="slider" {...settings}>
-          <div><Slide><h3>1</h3></Slide></div>
-          <div><Slide><h3>2</h3></Slide></div>
-          <div><Slide><h3>3</h3></Slide></div>
-        </Slider>
+        <div className="slider">
+          <Slider {...settings}>
+            <div><Slide><h3>1</h3></Slide></div>
+            <div><Slide><h3>2</h3></Slide></div>
+            <div><Slide><h3>3</h3></Slide></div>
+          </Slider>
+        </div>
       </div>
     );
   }

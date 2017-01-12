@@ -10,11 +10,28 @@
 }
 
 .main-slide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   height: 300px;
   width: 100%;
   padding-top: 30px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.main-slide img {
+  margin: 50px 20px;
+  width: 50px;
+  height: 90px;
+}
+
+.slide-text {
+  text-align: left;
+  margin: 30px 20px;
+  vertical-align: middle;
+  width: 500px;
 }
 
 .main-btn {
@@ -75,7 +92,6 @@
   display: inline-block;
   color: #f2b24a;
   padding: 0px 10px;
-  -webkit-text-stroke: 1px rgba(0,0,0,0.3);
   text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
 }
 
